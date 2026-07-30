@@ -37,3 +37,46 @@ aside,
 .bg-token-sidebar-surface-primary {
   background-color: var(--chatgpt-theme-background) !important;
 }
+
+/*
+ * 对话页顶部的标题区域和右侧操作按钮使用半透明表面。
+ * 深色模式下，这层半透明背景会显示成接近纯黑，因此在页头范围内
+ * 单独替换为目标颜色，不影响页面里的其他弹窗或菜单。
+ */
+#page-header .translucent-surface,
+[data-testid="thread-header-right-actions-container"] .translucent-surface {
+  background-color: var(--chatgpt-theme-background) !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+}
+
+/*
+ * 输入框下方的粘性区域在普通对话和 Work 模式中会创建独立的表面，
+ * 并可能在内部重新声明 --main-surface-primary。把变量限定覆盖到该
+ * 区域及其子元素，避免底部重新变成黑色。
+ */
+#thread-bottom-container,
+#thread-bottom-container * {
+  --main-surface-primary: var(--chatgpt-theme-background) !important;
+}
+
+#thread-bottom-container,
+#thread-bottom {
+  background-color: var(--chatgpt-theme-background) !important;
+}
+
+#thread-bottom-container::before,
+#thread-bottom-container::after {
+  background-color: var(--chatgpt-theme-background) !important;
+  background-image: none !important;
+}
+
+/*
+ * “ChatGPT can make mistakes”提示使用主表面颜色绘制一圈阴影。
+ * 同时覆盖背景和阴影，消除文字周围的黑色条带。
+ */
+[data-testid="thread-disclaimer"] .bg-token-main-surface-primary {
+  background-color: var(--chatgpt-theme-background) !important;
+  box-shadow:
+    0 0 8px 8px var(--chatgpt-theme-background) !important;
+}
