@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ChatGPT 柔和深色背景",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "将 chatgpt.com 的深色页面背景修改为 rgb(36, 36, 36)。",
   "content_scripts": [
     {
@@ -11,6 +11,9 @@
       ],
       "css": [
         "styles/chatgpt-theme.css"
+      ],
+      "js": [
+        "scripts/content.js"
       ],
       "run_at": "document_start"
     }
