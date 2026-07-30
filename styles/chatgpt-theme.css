@@ -80,3 +80,21 @@ aside,
   box-shadow:
     0 0 8px 8px var(--chatgpt-theme-background) !important;
 }
+
+/*
+ * 用户向上查看历史消息时，ChatGPT 会在输入框上方显示一个
+ * “滚动到底部”浮动按钮。只隐藏这个按钮，不影响页面滚动和滚动条。
+ * 同时兼容当前常见的 data-testid 以及中英文 aria-label/title。
+ */
+button[data-testid="scroll-to-bottom-button"],
+button[data-testid="scroll-down-button"],
+button[data-testid*="scroll"][data-testid*="bottom"],
+#thread-bottom-container button[aria-label="Scroll to bottom"],
+#thread-bottom-container button[aria-label="Go to bottom"],
+#thread-bottom-container button[aria-label="滚动到底部"],
+#thread-bottom-container button[aria-label="滚动至底部"],
+#thread-bottom-container button[title="Scroll to bottom"],
+#thread-bottom-container button[title="滚动到底部"],
+#thread-bottom-container button[title="滚动至底部"] {
+  display: none !important;
+}
