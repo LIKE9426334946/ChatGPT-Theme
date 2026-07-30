@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT 柔和深色背景",
+  "version": "1.0.0",
+  "description": "将 chatgpt.com 的深色页面背景修改为 rgb(36, 36, 36)。",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://www.chatgpt.com/*"
+      ],
+      "css": [
+        "styles/chatgpt-theme.css"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}

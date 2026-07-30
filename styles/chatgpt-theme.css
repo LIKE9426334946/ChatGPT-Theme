@@ -1,0 +1,39 @@
+/*
+ * ChatGPT 柔和深色背景
+ *
+ * 目标颜色：rgb(36, 36, 36) / #242424
+ *
+ * 优先覆盖 ChatGPT 自己的颜色变量。这样即使页面动态切换对话、
+ * 打开侧边栏或加载新内容，背景颜色也能继续生效。
+ */
+
+:root,
+body,
+.dark,
+[data-theme="dark"] {
+  --chatgpt-theme-background: rgb(36, 36, 36);
+
+  --main-surface-primary: var(--chatgpt-theme-background) !important;
+  --sidebar-surface-primary: var(--chatgpt-theme-background) !important;
+}
+
+html,
+body,
+#root,
+#__next,
+main,
+[role="main"],
+aside,
+[data-testid="left-sidebar"],
+[data-testid="history-sidebar"] {
+  background-color: var(--chatgpt-theme-background) !important;
+}
+
+/*
+ * ChatGPT 会给主内容区和侧边栏添加这些颜色工具类。
+ * 保留精确的 token 选择器，避免影响输入框、按钮和消息气泡。
+ */
+.bg-token-main-surface-primary,
+.bg-token-sidebar-surface-primary {
+  background-color: var(--chatgpt-theme-background) !important;
+}
